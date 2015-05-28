@@ -5,6 +5,11 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
+import cts.ExceptieActivitatiNegative;
+import cts.ExceptieFragmentareActivitate;
+import cts.ExceptieLimitaSuperioaraPontaj;
+import cts.ExceptiePontaj;
+import cts.ExceptieZeroActivitati;
 import cts.angajat;
 import cts.angajat.AngajatBuilder;
 
@@ -23,20 +28,45 @@ public class angajatTest  extends TestCase{
 
 	//unit test pentru verificat metoda ponteazaActivitate(int nrAct)
 	//testare valori normale (naturale > 0)
-	public void testValoriNormalePontaj(){
+	public void testValoriNormalePontaj() throws ExceptieActivitatiNegative, ExceptieFragmentareActivitate, ExceptieZeroActivitati, ExceptieLimitaSuperioaraPontaj{
 		
 	    //valori de testat
 		int expected = 1;
-		assertEquals("Test ponteazaActivitate()",expected, ang.ponteazaActivitate(1));
+		
+		assertEquals("Test ponteazaActivitate()",expected, ang.ponteazaActivitate(1),0.0);
 		}
 	
 	
 	//unit test pentru verificat metoda ponteazaActivitate(int nrAct)
 		//testare valori negative (naturale < 0)
-		public void testValoriNegativePontaj(){
-			
-		    //valori de testat
-			int expected = -1;
-			assertEquals("Test ponteazaActivitate()", expected, ang.ponteazaActivitate(-1));
+		public void testValoriNegativePontaj() throws ExceptieActivitatiNegative, ExceptieZeroActivitati, ExceptieLimitaSuperioaraPontaj, ExceptieFragmentareActivitate{
+			try{
+				setUp();
+				ang.ponteazaActivitate(-1);
+				assertFalse("Metoda nu arunca exceptii pevalori negative.",true);
 			}
+			catch(ExceptiePontaj ex){
+				assertTrue(true);
+			}
+		}
+				
+			
+		//unit test pentru verificat metoda ponteazaActivitate(int nrAct)
+		//testare valori pozitive > 20
+		public void testDepasireLimita(){
+			try{
+				setUp();
+				int valoare = 100;
+				ang.ponteazaActivitate(valoare);
+				fail("Test ponteazaActivitate(int nrAct) cu valoare peste limita 20");
+			}
+			catch(ExceptiePontaj ex){
+				
+			}
+				
+			}
+		
 	}
+	
+	
+
