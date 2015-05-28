@@ -27,7 +27,16 @@ public class angajatTest  extends TestCase{
 		
 	    //valori de testat
 		int expected = 1;
-		ang.ponteazaActivitate(0);
-		assertEquals("Test ponteazaActivitate()", 1, ang.ponteazaActivitate(1));
+		assertEquals("Test ponteazaActivitate()",expected, ang.ponteazaActivitate(1));
 		}
+	
+	
+	//unit test pentru verificat metoda ponteazaActivitate(int nrAct)
+		//testare valori negative (naturale < 0)
+		public void testValoriNegativePontaj(){
+			
+		    //valori de testat
+			int expected = -1;
+			assertEquals("Test ponteazaActivitate()", expected, ang.ponteazaActivitate(-1));
+			}
 	}
