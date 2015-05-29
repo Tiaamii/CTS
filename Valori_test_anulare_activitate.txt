@@ -1,0 +1,24 @@
+#
+#	Cazuri de test pentru un angajat
+#
+#	Valori initiale Angajat
+setUp	20
+#
+#	Valori naturale normale
+#	expected	numar_activitati_anulate
+#
+16	4
+8	12
+19	1
+#
+#	Valori aflate la limita
+#
+1	19
+20	0
+#
+#	Valori negative
+#
+-1
+-13
+-590
+-89589
