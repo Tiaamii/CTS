@@ -1,0 +1,24 @@
+#
+#	Cazuri de test pentru un angajat
+#
+#	Valori initiale Angajat
+setUp	0
+#
+#	Valori naturale normale
+#	expected	pontaj
+#
+5	5
+15	15
+19	19
+#
+#	Valori aflate la limita
+#
+1	1
+20	20
+#
+#	Valori negative
+#
+-1
+-10
+-200
+-3589
